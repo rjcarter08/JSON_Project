@@ -13,7 +13,7 @@ brights,lons,lats = [],[],[]
 
 for fr in us_fires1: 
      if fr["brightness"] > 450:
-        bright = fr["brightness"] > 450
+        bright = fr["brightness"] 
         lon = fr["longitude"]
         lat = fr["latitude"]    
         brights.append(bright)
