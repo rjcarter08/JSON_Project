@@ -12,12 +12,13 @@ json.dump(us_fires1,out_file,indent=4)
 brights,lons,lats = [],[],[]
 
 for fr in us_fires1: 
-    bright = fr["brightness"]
-    lon = fr["longitude"]
-    lat = fr["latitude"]    
-    brights.append(bright)
-    lons.append(lon)
-    lats.append(lat) 
+     if fr["brightness"] > 450:
+        bright = fr["brightness"] > 450
+        lon = fr["longitude"]
+        lat = fr["latitude"]    
+        brights.append(bright)
+        lons.append(lon)
+        lats.append(lat)
 
 
 
@@ -38,7 +39,6 @@ data = [{
     'type': 'scattergeo',
     'lon': lons, 
     'lat':lats,
-    'text':hover_texts,
     'marker': { 
         'size':[5*bright for bright in brights],
         'color':brights,
@@ -49,7 +49,7 @@ data = [{
     },
 }]
 
-my_layout = Layout(title = 'US Fires - 9/1/2020 through 9/13/2020')
+my_layout = Layout(title = 'US Fires - 9/14/2020 through 9/20/2020')
 
 
 fig = {'data':data, 'layout':my_layout}

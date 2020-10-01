@@ -11,9 +11,9 @@ json.dump(us_fires1,out_file,indent=4)
 
 brights,lons,lats = [],[],[]
 
-for fr in us_fires1: 
-    if fr["brightness"] > 450: 
-        bright = fr["brightness"]
+for fr in us_fires1:  
+    if fr["brightness"] > 450:
+        bright = fr["brightness"] > 450
         lon = fr["longitude"]
         lat = fr["latitude"]    
         brights.append(bright)
@@ -37,7 +37,7 @@ data = [{
     'lon': lons, 
     'lat':lats,
     'marker': { 
-        'size':[5*bright for bright in brights],
+        'size':[8*bright for bright in brights],
         'color':brights,
         'colorscale':'Viridis',
         'reversescale':True, 
